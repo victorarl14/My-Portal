@@ -15,8 +15,8 @@ const Header = () => (
       <a href="https://t.me/" target="_blank" rel="noopener noreferrer"><FaTelegram /></a>
       <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
       <a href="https://wa.me/" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
-      <a href="https://www.linkedin.com/in/victor-rojas-lira/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-      <a href="https://github.com/victorarojaslira" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+      <a href="https://www.linkedin.com/in/victor-a-rojas-lira/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+      <a href="https://github.com/victorarl14/" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
     </nav>
   </header>
 );
