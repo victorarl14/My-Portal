@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
+// @ts-ignore
+import Header from "./components/Header";
+// @ts-ignore
+import AboutMe from "./components/AboutMe";
+// @ts-ignore
+import Technologies from "./components/Technologies";
+// @ts-ignore
+import Projects from "./components/Projects";
+// @ts-ignore
+import Contact from "./components/Contact";
+// @ts-ignore
+import ContactForm from "./components/ContactForm";
+import React from "react";
 
 const App: React.FC = () => {
-  const [mensaje, setMensaje] = useState<string>("");
-
-  useEffect(() => {
-    const API_URL = import.meta.env.VITE_API_URL;
-
-    fetch(`${API_URL}/hola`)
-      .then((response) => response.json())
-      .then((data: { mensaje: string }) => {
-        console.log(data);
-        setMensaje(data.mensaje);
-      })
-      .catch((error) => {
-        console.error("Error al hacer fetch:", error);
-      });
-  }, []);
-
   return (
-    <div>
-      <h1>BACKEND MESSAGE:</h1>
-      <p>{mensaje}</p>
+    <div className="main-container">
+      <Header />
+      <AboutMe />
+      <Technologies />
+      <Projects />
+      <Contact />
+      <ContactForm />
     </div>
   );
 };
