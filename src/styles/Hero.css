@@ -1,0 +1,70 @@
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 0;
+  min-height: 90vh;
+  background: url('/images/icons/fondo1.png') no-repeat center center/cover;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-content h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #c0c0c0;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+
+.hero-content h1 .name {
+  color: #e94560; /* Color de acento para el nombre */
+}
+
+.hero-content h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.hero-socials {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero-socials a {
+  transition: transform 0.3s ease;
+}
+
+.hero-socials a:hover {
+  transform: translateY(-5px);
+}
+
+.hero-socials img {
+  width: 32px;
+  height: 32px;
+}
+
+.hero-cta {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.hero-avatar {
+  max-width: 400px;
+}
+
+.hero-avatar img {
+  width: 100%;
+  border-radius: 50%;
+  border: 5px solid #2a2a4a;
+} 

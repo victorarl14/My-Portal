@@ -1,0 +1,41 @@
+.technologies-section {
+  text-align: center;
+}
+
+.technologies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.tech-card {
+  background-color: #2a2a4a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tech-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.tech-card p {
+  margin: 0;
+  font-weight: 500;
+  color: #ffffff;
+} 

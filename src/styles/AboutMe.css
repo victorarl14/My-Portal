@@ -1,0 +1,15 @@
+.about-section {
+  background-color: #161625; /* Un poco más claro que el fondo principal */
+  text-align: center;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #c0c0c0;
+} 
