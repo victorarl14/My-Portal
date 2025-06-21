@@ -5,7 +5,7 @@ import '../styles/Technologies.css';
 interface Technology {
   id: string;
   name: string;
-  icon_class: string; // Usaremos esto más adelante, por ahora la imagen
+  icon_class: string; // ¡Ahora usaremos este campo!
 }
 
 const API_URL = 'http://localhost:3000'; // Asegúrate de que este sea el puerto correcto
@@ -26,21 +26,22 @@ const Technologies: React.FC = () => {
     fetchTechnologies();
   }, []);
 
-  const getIconPath = (name: string) => {
-    const formattedName = name.toLowerCase().replace(/\./g, '');
-    return `/images/icons/${formattedName}-icon.png`;
-  };
-
   return (
     <section id="technologies" className="section technologies-section">
-      <h2 className="section-title">Tecnologías</h2>
-      <div className="technologies-grid">
-        {technologies.map(tech => (
-          <div key={tech.id} className="tech-card">
-            <img src={getIconPath(tech.name)} alt={`${tech.name} icon`} />
-            <p>{tech.name}</p>
-          </div>
-        ))}
+      <div className="main-container">
+        <h2 className="section-title">Tecnologías</h2>
+        <div className="technologies-grid">
+          {technologies.map(tech => (
+            <div key={tech.id} className="tech-card">
+              <img 
+                src={`/images/icons/${tech.icon_class}`} 
+                alt={`${tech.name} icon`} 
+                onError={(e) => { e.currentTarget.src = '/images/icons/default-icon.png'; }} // Opcional: una imagen por defecto si falla
+              />
+              <p>{tech.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

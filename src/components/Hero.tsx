@@ -4,33 +4,35 @@ import '../styles/Hero.css';
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="hero-section">
-      <div className="hero-content">
-        <h2>BIENVENIDO A MI PORTAL</h2>
-        <h1>
-          Hey, soy <span className="name">Victor Rojas</span>
-        </h1>
-        <h3>Desarrollador Web</h3>
-        <div className="hero-socials">
-          <a href="https://t.me/tu-usuario" target="_blank" rel="noopener noreferrer">
-            <img src="/images/redes_sociales/telegram-icon.png" alt="Telegram" />
-          </a>
-          <a href="https://www.instagram.com/tu-usuario" target="_blank" rel="noopener noreferrer">
-            <img src="/images/redes_sociales/instagram-icon.png" alt="Instagram" />
-          </a>
-          <a href="https://wa.me/tu-numero" target="_blank" rel="noopener noreferrer">
-            <img src="/images/redes_sociales/whatsapp.png" alt="WhatsApp" />
-          </a>
-          <a href="https://www.linkedin.com/in/victor-rojas-lira" target="_blank" rel="noopener noreferrer">
-            <img src="/images/redes_sociales/linkdin.png" alt="LinkedIn" />
-          </a>
-          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
-            <img src="/images/redes_sociales/github-icon.png" alt="Github" />
-          </a>
+      <div className="hero-container">
+        <div className="hero-content">
+          <h2>BIENVENIDO A MI PORTAL</h2>
+          <h1>
+            Hey, soy <span className="name">Victor Rojas</span>
+          </h1>
+          <h3>Desarrollador Web</h3>
+          <div className="hero-socials">
+            <a href="https://t.me/tu-usuario" target="_blank" rel="noopener noreferrer">
+              <img src="/images/redes_sociales/telegram-icon.png" alt="Telegram" />
+            </a>
+            <a href="https://www.instagram.com/tu-usuario" target="_blank" rel="noopener noreferrer">
+              <img src="/images/redes_sociales/instagram-icon.png" alt="Instagram" />
+            </a>
+            <a href="https://wa.me/tu-numero" target="_blank" rel="noopener noreferrer">
+              <img src="/images/redes_sociales/whatsapp.png" alt="WhatsApp" />
+            </a>
+            <a href="https://www.linkedin.com/in/victor-rojas-lira" target="_blank" rel="noopener noreferrer">
+              <img src="/images/redes_sociales/linkdin.png" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
+              <img src="/images/redes_sociales/github-icon.png" alt="Github" />
+            </a>
+          </div>
+          <p className="hero-cta">¿Por qué contratarme para su próximo proyecto?</p>
         </div>
-        <p className="hero-cta">¿Por qué contratarme para su próximo proyecto?</p>
-      </div>
-      <div className="hero-avatar">
-        <img src="/images/icons/avatar-icon.png" alt="Victor Rojas Avatar" />
+        <div className="hero-avatar">
+          <img src="/images/icons/avatar-icon.png" alt="Victor Rojas Avatar" />
+        </div>
       </div>
     </section>
   );

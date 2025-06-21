@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project } from './Projects'; // Importamos la interfaz
+import type { Project } from './Projects';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface ProjectCardProps {
@@ -7,17 +7,41 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  // Imagen por defecto si no hay una en el proyecto
-  const imageUrl = project.image_url || 'https://via.placeholder.com/400x300.png?text=Proyecto';
+  const projectLink = project.live_url || project.github_url;
 
   return (
     <div className="project-card">
       <div className="project-card-image">
-        <img src={imageUrl} alt={project.title} />
+        {project.image_url ? (
+          <img src={project.image_url} alt={project.title} />
+        ) : (
+          <div className="image-placeholder">
+            <span>Imagen no disponible</span>
+          </div>
+        )}
       </div>
       <div className="project-card-content">
-        <h3>{project.title}</h3>
+        <h3>
+          {projectLink ? (
+            <a href={projectLink} target="_blank" rel="noopener noreferrer">
+              {project.title}
+            </a>
+          ) : (
+            project.title
+          )}
+        </h3>
         <p>{project.description}</p>
+        <div className="project-technologies">
+          {project.technologies?.map(tech => (
+            <img 
+              key={tech.id} 
+              src={`/images/icons/${tech.icon_class}`} 
+              alt={tech.name} 
+              title={tech.name}
+              className="tech-icon"
+            />
+          ))}
+        </div>
         <div className="project-links">
           {project.github_url && (
             <a href={project.github_url} target="_blank" rel="noopener noreferrer">
@@ -35,4 +59,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   );
 };
 
-export default ProjectCard; 
+export default ProjectCard;
