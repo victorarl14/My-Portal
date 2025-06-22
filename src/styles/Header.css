@@ -20,8 +20,9 @@
 }
 
 .header.scrolled {
-  background-color: #1a1a2e; /* Fondo oscuro principal */
+  background-color: rgba(26, 26, 46, 0.85); /* Fondo oscuro con transparencia */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .header-logo-container {
@@ -65,6 +66,7 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -96,4 +98,98 @@
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
+}
+
+.nav-links .button-register {
+  background-color: #3d3d3d;
+}
+
+.auth-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espacio entre los elementos de autenticación */
+}
+
+.welcome-message {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #c0c0c0;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* --- Botón Descargar CV --- */
+.button-cv {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid #e94560;
+  color: #e94560;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.button-cv:hover {
+  background-color: #e94560;
+  color: #ffffff;
+}
+
+.menu-icon {
+  display: none; /* Oculto por defecto en escritorio */
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.button-cv.mobile-only {
+  display: none;
+}
+
+.button-cv.desktop-only {
+  display: inline-block;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 46, 0.95);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a, .auth-controls {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .auth-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .button-cv.desktop-only {
+    display: none;
+  }
+
+  .button-cv.mobile-only {
+    display: block; /* Mostrar solo en móvil */
+  }
+
+  .menu-icon {
+    display: block; /* Mostrar el icono de hamburguesa */
+  }
 } 

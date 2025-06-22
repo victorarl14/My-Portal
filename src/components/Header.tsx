@@ -1,36 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import { FaTelegramPlane, FaInstagram, FaWhatsapp, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 import '../styles/Header.css';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { isAuthenticated, logout, user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLinkClick = () => setMenuOpen(false);
+
+  const handleLogout = () => {
+    logout();
+    handleLinkClick();
+    navigate('/');
+  };
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <div className="header-logo-container">
-          <div className="header-logo-text">
-            <span>Víctor Rojas</span>
-            <span>Desarrollador Web</span>
-          </div>
+        <div className="header-logo-text">
+          <Link to="/"><h2>PORTAFOLIO</h2></Link>
         </div>
-        <nav className="social-icons">
-          <a href="https://t.me/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegramPlane /></a>
-          <a href="https://www.instagram.com/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
-          <a href="https://wa.me/tu-numero" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
-          <a href="https://www.linkedin.com/in/victor-rojas-lira" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="Github"><FaGithub /></a>
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <Link to="/#inicio" onClick={handleLinkClick}>Inicio</Link>
+          <Link to="/#sobre-mi" onClick={handleLinkClick}>Sobre mí</Link>
+          <Link to="/#tecnologias" onClick={handleLinkClick}>Tecnologías</Link>
+          <Link to="/#proyectos" onClick={handleLinkClick}>Proyectos</Link>
+          <Link to="/#contacto" onClick={handleLinkClick}>Contacto</Link>
+          
+          <div className="auth-controls">
+            {isAuthenticated ? (
+              <>
+                <span className="welcome-message">Hola, {user?.name.split(' ')[0]}</span>
+                <button onClick={handleLogout} className="button-logout">Logout</button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="button-login" onClick={handleLinkClick}>Login</Link>
+                <Link to="/register" className="button-register" onClick={handleLinkClick}>Register</Link>
+              </>
+            )}
+          </div>
+          <a href="/CURRÍCULUM - Víctor Rojas - 2025.pdf" download className="button-cv mobile-only">Descargar CV</a>
         </nav>
+        <a href="/CURRÍCULUM - Víctor Rojas - 2025.pdf" download className="button-cv desktop-only">Descargar CV</a>
+        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
     </header>
   );

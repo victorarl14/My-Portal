@@ -50,7 +50,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           )}
           {project.live_url && (
             <a href={project.live_url} target="_blank" rel="noopener noreferrer">
-              <FaExternalLinkAlt /> Ver Demo
+              <FaExternalLinkAlt /> 
+              {project.title === '#VACA MEDIÁTICA' ? 'Ver Deploy' : 'Ver Demo'}
             </a>
           )}
         </div>
