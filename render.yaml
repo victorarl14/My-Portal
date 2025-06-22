@@ -1,0 +1,17 @@
+# Configuración del servicio para Render
+
+services:
+  # Un sitio estático para el frontend
+  - type: static_site
+    name: my-portal-frontend
+    # El entorno de ejecución para el build
+    env: node
+    # Comandos para construir el sitio
+    buildCommand: npm install && npm run build
+    # Directorio donde se encuentra el sitio construido
+    staticPublishPath: dist
+    # Regla para redirigir todas las peticiones a index.html
+    # Esto soluciona el problema de las rutas en SPAs (Single Page Applications)
+    rewrites:
+      - source: "/*"
+        destination: "/index.html" 
