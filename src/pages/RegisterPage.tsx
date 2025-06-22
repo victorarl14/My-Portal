@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../services/api';
 import '../styles/AuthPage.css';
 
@@ -13,6 +13,7 @@ const RegisterPage: React.FC = () => {
   });
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,8 +24,11 @@ const RegisterPage: React.FC = () => {
     setError('');
     setMessage('');
     try {
-      const response = await registerUser(formData);
-      setMessage(response.message);
+      await registerUser(formData);
+      setMessage('¡Registro exitoso! Redirigiendo al login en 3 segundos...');
+      setTimeout(() => {
+        navigate('/login');
+      }, 3000);
     } catch (err: any) {
       const errorMessage = err.response?.data?.message || 'Error en el registro.';
       setError(errorMessage);
