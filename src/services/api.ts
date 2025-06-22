@@ -1,9 +1,8 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:3000'; // Tu URL del backend
+import { config } from '../config';
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: config.apiUrl,
 });
 
 // Puedes añadir interceptores aquí si lo necesitas en el futuro

@@ -1,8 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
-
-const API_URL = 'http://localhost:3000'; // La URL de tu API NestJS
+import { config } from '../config';
 
 interface AuthContextType {
   token: string | null;

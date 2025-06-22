@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Technologies.css';
+import { config } from '../config';
 
 interface Technology {
   id: string;
@@ -8,15 +9,13 @@ interface Technology {
   icon_class: string; // ¡Ahora usaremos este campo!
 }
 
-const API_URL = 'http://localhost:3000'; // Asegúrate de que este sea el puerto correcto
-
 const Technologies: React.FC = () => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
 
   useEffect(() => {
     const fetchTechnologies = async () => {
       try {
-        const response = await axios.get(`${API_URL}/technologies`);
+        const response = await axios.get(`${config.apiUrl}/technologies`);
         setTechnologies(response.data);
       } catch (error) {
         console.error('Error fetching technologies:', error);

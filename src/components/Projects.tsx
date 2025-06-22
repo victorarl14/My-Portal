@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProjectCard from './ProjectCard';
 import '../styles/Projects.css';
+import { config } from '../config';
 
 interface Technology {
   id: string;
@@ -19,15 +20,13 @@ export interface Project {
   technologies: Technology[];
 }
 
-const API_URL = 'http://localhost:3000';
-
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(`${API_URL}/projects/featured`);
+        const response = await axios.get(`${config.apiUrl}/projects/featured`);
         console.log('Respuesta de la API:', response);
         console.log('Datos recibidos:', response.data);
         setProjects(response.data);
